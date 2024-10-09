@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap');
+
+body {
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  color: white;
+  margin: 0;
+  overflow: hidden;
+  background-color: #00204a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+svg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -100;
+  width: 100%;
+  height: 100vh;
+}
+
+.fa-magnifying-glass {
+  color: white;
+}
+
+.header-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+  width: 100%;
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  margin-right: 20px; /* Add minimal spacing to the right of the logo */
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  z-index: 19299;
+  margin-right: 10px; /* Small space between logo and text */
+}
+
+.logo-wrapper .text {
+  font-size: 40px;
+  color: #fff;
+}
+
+/* Center align the content */
+.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Ensure everything stays centered */
+  width: auto;
+}
+
+.flex-container .search-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+#uv-address {
+  background: none;
+  font-family: inherit;
+  padding: 0 17px;
+  height: 48px;
+  border: 1px solid rgba(253, 253, 253, 0);
+  color: #fff;
+  border-radius: 50px;
+  outline: none;
+  width: 300px;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+#uv-address:focus {
+  border: 1px solid rgba(253, 253, 253, 0.514);
+  width: 350px;
+  border-radius: 6px;
+}
+
+.search-wrapper .fa-magnifying-glass {
+  margin-right: 10px;
+  color: #fff;
+}
+
+.menu-icon-wrapper {
+  display: flex;
+  align-items: center;
+  margin-left: 20px; /* Space between search bar and menu icon */
+}
+
+.menu-icon {
+  width: 30px;
+  height: 30px;
+  background-color: #00ff99;
+}
+
+#uv-frame {
+  border: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #111;
+}
+
+.home-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: 0.3s;
+}
+
+.home-button:hover {
+  filter: invert(28%) sepia(79%) saturate(20%) hue-rotate(86deg) brightness(118%) contrast(119%);
+}
