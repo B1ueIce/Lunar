@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <title>Home | Lunar</title>
+
+    <meta name="googlebot" content="index, follow, snippet" />
+    <link rel="shortcut icon" content="favicon.ico" />
+    <link rel="stylesheet" href="index.css" />
+    <script src="baremux/index.js" defer></script>
+    <script src="epoxy/index.js" defer></script>
+    <script src="uv/uv.bundle.js" defer></script>
+    <script src="uv/uv.config.js" defer></script>
+    <script src="register-sw.js" defer></script>
+    <script src="search.js" defer></script>
+    <script src="index.js" defer></script>
+  </head>
+
+  <body>
+    <svg preserveAspectRatio="xMidYMid slice" viewBox="10 10 80 80">
+      <defs>
+        <style>
+          @keyframes rotate {
+            0% {
+              transform: rotate(0deg);
+            }
+            100% {
+              transform: rotate(360deg);
+            }
+          }
+          .out-top {
+            animation: rotate 40s linear infinite;
+            transform-origin: 13px 25px;
+          }
+          .in-top {
+            animation: rotate 20s linear infinite;
+            transform-origin: 13px 25px;
+          }
+          .out-bottom {
+            animation: rotate 50s linear infinite;
+            transform-origin: 84px 93px;
+          }
+          .in-bottom {
+            animation: rotate 30s linear infinite;
+            transform-origin: 84px 93px;
+          }
+        </style>
+      </defs>
+      <path fill="#011d4a" class="out-top" d="M37-5C25.1-14.7,5.7-19.1-9.2-10-28.5,1.8-32.7,31.1-19.8,49c15.5,21.5,52.6,22,67.2,2.3C59.4,35,53.7,8.5,37-5Z" />
+      <path fill="#093559" class="in-top" d="M20.6,4.1C11.6,1.5-1.9,2.5-8,11.2-16.3,23.1-8.2,45.6,7.4,50S42.1,38.9,41,24.5C40.2,14.1,29.4,6.6,20.6,4.1Z" />
+      <path fill="#021169" class="out-bottom" d="M105.9,48.6c-12.4-8.2-29.3-4.8-39.4.8-23.4,12.8-37.7,51.9-19.1,74.1s63.9,15.3,76-5.6c7.6-13.3,1.8-31.1-2.3-43.8C117.6,63.3,114.7,54.3,105.9,48.6Z" />
+      <path fill="#045175" class="in-bottom" d="M102,67.1c-9.6-6.1-22-3.1-29.5,2-15.4,10.7-19.6,37.5-7.6,47.8s35.9,3.9,44.5-12.5C115.5,92.6,113.9,74.6,102,67.1Z" />
+    </svg>
+
+    <a id="home-button2" href=".." class="home-button"><img src="home.svg" width="30px" height="30px" /></a>
+    <a id="home-button" style="display: none" href="javascript:clickHome()" class="home-button"><img src="home.svg" width="30px" height="30px" /></a>
+
+    <div class="desc left-margin">
+      <p id="uv-error"></p>
+      <pre id="uv-error-code"></pre>
+    </div>
+
+    <iframe style="display: none;" id="uv-frame"></iframe>
+    <h5 style="z-index: -10;left: 1%; position: absolute; top: 95%;">Made for chrome</h5>
+
+    
+    <div id="gameButtons"class="game-buttons">
+    
+    </div>
+  </body>
+  <script>
+
+function createButton(text, image, link) {
+	const gameButtonsDiv = document.getElementById('gameButtons');
+	const button = document.createElement('button');
+	button.onclick = () => gameFrame(link);
+
+	const img = document.createElement('img');
+	if (image !== "") {
+	img.src = image;
+} else {
+	img.src = `${link}/favicon.ico`;
+}
+	img.id = "funnyimg"
+	img.alt = text;
+
+	const span = document.createElement('span');
+	span.textContent = text;
+	button.classList = "game-button"
+	button.appendChild(img);
+	button.appendChild(span);
+	gameButtonsDiv.appendChild(button);
+}
+    // Generate all buttons in the new format
+    createButton("Bypass 1", "images/2.png", "https://b1ueice.github.io/404/")
+        createButton("Bypass 2", "images/2.png", "https://b1ueice.github.io/Bypass2/main.html")
+        createButton("Bypass 3 version 1.9.3", "images/2.png", "https://b1ueice.github.io/BluesBypass1.9.3/main")
+        createButton("Bypass 3 version 2", "images/2.png", "https://b1ueice.github.io/main")
+        createButton("Bored Button", "images/bored.webp", "https://www.boredbutton.com/")
+        createButton("Rammer-head Browser", "images/rammerhead.png", "https://browser.rammerhead.org/")
+        createButton("SZ Games", "images/sz.jpg" ,"https://sz-games.github.io/")
+        createButton("GBA games","images/gba.jpg", "https://bobzgames.github.io/GBA/")
+        createButton("Clockwork", "images/clockwork.png", "https://clockwork-os.vercel.app/os/")
+        createButton("Terbium", "images/tb.png", "https://terbium-46q.pages.dev/")
+        createButton("Sodium", "images/sodium.svg", "https://v2.sodium-5h8.pages.dev/welcome")
+        createButton("BruhProx", "images/uv.png", "https://bruhprox.pages.dev/")
+        createButton("Zatoga", "images/zatoga.png", "https://zatoga.net/")
+        createButton("z1g project", "images/z1g.png", "https://z1g-project.pages.dev/")
+        createButton("Utopia", "images/utopia.png", "https://utopiaweb.org/")
+        createButton("Neal.fun", "images/neal.jpg", "https://neal.fun")
+        createButton("Paint", "images/paint.jpg", "https://jspaint.app/")
+        createButton("Noclip", "images/noclip.png", "https://noclip.website/")
+        createButton("Phantom Games", "images/phantom.png", "https://www.phantomgames.dev/")
+        createButton("Totally Science", "images/science.png", "https://totallyscience.co/")
+        createButton("Abyss Browser", "images/abyss.png", "https://intoabyss.org/")
+        createButton("Nebula Browser", "images/nebula.png", "https://nebulaproxy.io/")
+        createButton("Cookieduck", "images/cookieduck.png", "https://cookieduck.com/games")
+        createButton("ubg100", "images/ubg100.png", "https://ubg100.github.io/games.html")
+        createButton("Anura OS", "images/anura.png", "https://anura.pro/")
+        createButton("Flow Works OS", "images/flow.png", "https://www.flow-works.me/")
+        createButton("Unblocked Games 76", "images/classroom.png", "https://sites.google.com/site/unblockedgame76/")
+        createButton("Classroom 6x", "images/classroom.png", "https://sites.google.com/site/classroom6x/")
+        createButton("Youtube in Google Drive", "images/yt.svg", "https://speedtesting.herokuapp.com/videodrive/")
+        createButton("Youtube", "images/yt.svg", "https://www.youtube.com/")
+        createButton("Youtube Music", "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAWlBMVEX/AAD/////+fn/j4//HBz/s7P/PT3/7+//3t7/QkL/cXH/mZn/wsL/2dn/z8//tbX/ior/Cwv/TU3/Zmb/gYH/Jib/LCz/dXX/VFT/FBT/vb3/5ub/X1//oKANu9JaAAABw0lEQVRIiaWX22KDIAyGE9CiFcHW2tO293/NodZDAqJjuSqHT5LwAylgyIq8acsMICvbJi+CU8Dv0mdgdtb7oKg4NVol4uAGNqAR0Fy2OYCL2QJvMay3WxAUpz0O4CR8UEXdnN1VHFRHsN4UBcWh9YY1BQEPxDfZaQ3u5nNttwU0f+EAzAyGArxKq7WV18DQZQJ9nd2ty1dtTO0yYe/ecDWCwhvIUclu/NlJhdabIAaQL+jk8Vi3H76oqgFknU8/VwafrKcHNVuPd/Sm+UZrB7LzLoJ7Y1gizg6kPXZsv17ct5y1oSDt+ycvHUo68YF0VwqgX7KfU5K589KSEUU3JYeGeiBnELEuVyOSxtQA+e4VuxWI+F5C7ZCor4X1V0FOycumg76oQ5CoS8jWTVtzENWkopoESTC3r8YDEb/GSSYgjCj49YmNg3uuzlnnrsaTo5e08uTEtkN9L0PedkQE8EOc4QLYlFxNxelJbkvk5BIIiZwdq/zwsUo/yN7V8fa5d+jqSL6s0q/H3Qs59yaI/z0B6Y9O+jOX/LCmP+XpxUNyuZJeIKWXZEdyGy4CMb3sDKpvtlihi+mldW9pxfxoB/4+/AJ1YxHo0oXN2QAAAABJRU5ErkJggg==", "https://music.youtube.com/")
+        createButton("Emulator Games", "images/emulator.png", "https://www.emugames.net/")
+        createButton("SFlix", "images/sflix.jpg", "https://sflix.to/")
+        createButton("123Movies", "images/123.jpg", "https://ww16.0123movie.net/")
+        createButton("FMovies", "images/fmovies.jpg", "https://ww4.fmovies.co/24/")
+        createButton("VSCode", "data:image/jpeg;base64,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", "https://vscode.dev/")
+        createButton("Microsoft Store", "images/msstore.jpg", "https://apps.microsoft.com/")
+        createButton("Play Store", "images/googlestore.png", "https://play.google.com/store/games?hl=en_US&gl=US")
+        createButton("GeForce NOW", "images/geforceNOW.png", "https://play.geforcenow.com/mall/")
+        createButton("WhiteSpider", "images/whitespider.png", "https://whitespider.dev/")
+        createButton("SHSgames", "images/shs.png", "https://shsgames.github.io/")
+        createButton("Native", "images/native.png", "https://nativegames.net/")
+        createButton("artclass.site", "images/artclass.jpg", "https://artclass.site/")
+        createButton("OS-js", "images/osjs.png", "https://demo.os-js.org/")
+        createButton("Eigth Grade", "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAM8AAAD0CAMAAAAL4oIDAAAAh1BMVEX///8AAADu7u4QEBD7+/v4+Pj19fU/Pz9eXl7r6+vx8fHg4ODKysrb29t3d3fn5+eCgoK5ubnU1NRtbW0vLy8bGxtEREStra1UVFSnp6fExMTNzc2ZmZkyMjKTk5NmZmYjIyMXFxdaWlpLS0s6OjonJyeKioqVlZWgoKBQUFC8vLx9fX0LCwuHY0MSAAAKxElEQVR4nO2d6XbiMAyFEwhhCVvCHlogbIXC+z/fAO102k6p7pXtNKcn938TvsaWZVmSPb/6m+R7o6jyexRVvWrL+z1qVb1R5ad/hEVVLt+n5CmuSp5iq+QptkqeYqvkKbZKnmKr5Cm2Sh6Naq8KnL/JJU9QiZLJU7+7XI/rLzouB/39od3pOdsSu+LptQ/dxjbzv9ZqPOjHiQsoFzyduF8/3yF5r9F0kdp+t22eZroYAyj/mJaTyOasssoTJPstA/M6+JZxaOsX2OSJDnUe5hWpn9j5DdZ4gvkSmTL3NU1rFn6GJZ4wXhvB3LROLUwkKzzp0ZzmqmmnCDxtyqB9r2700zzRyWzefNJwYjboTHkmK5s0V3V7P8fTsWAG/tMu/SmeydABzkUP+vXVgCdcuKG5qKtei/Q8TRdj7a82Wt9bzdN5dIjj+2OlA6TlSdziXIB0a6uSJ9k5xrn4qKqlVceTWF91vtBGsxCpeHL4Olc1FANHwxMpNm0qdXPhCTc54VwW1jx4Trnh+H7bPU+cI44/Zm0CzZNU8+TxB455gkauOL5POtsszyRnHL/OeXIkT3OUNw9p40iePf1zVuPBNQLfSZKk054suscduT/fUX4PxxORn2c1mEWfxksYpX0u7rh3x9Onfsg6vjf2k32GP6bKfCCKJ2Lc0MH8u0hN7wHfq/dd8RAb7I0Y7OwN0GdlhImjePDPc0ACAJMMfZobnjZKM55jD+yBY26Mz3CGB7UGeBi6A1o63C0leEJw2zMlomcR9oVOLnjA4bZp4jieN4eeuYUtAsHzAL36kQxjHKCnwgOO4ME865jD8WpT5KkL+zwVaPowa9+LEsSfm9rngd47VMSYoP07amNwnmfktfC4eCfIJKCzEudBtgpb1VkUMoMm1nkQc0C59m9C9rxP1nmQqJvuUCACZiYaWsR5gJV8qztXCwCv5wg+GucBnGvcLfkowDFEPQSYJwTibuxa+lfABBpa58nkl2qTigCL/fgDPGfKE32nnnz+8hM8OyWO15MPL62Pt6b4Sv9Ry1ORDZx1e1CTecZanlDOz6r/gL3W88gezxTMsLC5nta1PBU54ww9N8F55HSQoZanKW+t7PtvcvgvU9tr+dvb969n4jvV62mSiY9GAwg4TyrzPCt5AH8HjRHiPB35rES3/UH8UXhq4jwtedGDoxYfFdgzb0y8aim+VTmBOvJ+buaABzAIqFX9KDkyMYIj4gRPR+bZaix2KFvrKZzETPDUgAgCcVLzJsC64WfczHkJEGoe8Ul4Pdk5IE5QGZ6ezKNI8QKCB0s8Z546b0RCVmwMAVimmXWa4kFSq85cilcEPJLx2ykexCL4Q2YR6iC1KagvSvNg2Uj4YuH1EJw6kyzP8dSwnHh0NZ9DqTxUxhiZj4Qdd/pd5JHhA4TTpQqC2Pw3MKmjLpu5BPvWGbeisTzA1vhF2+dvIzJzNNuFMQYKHi+F80fHD507M7k3gbM22fWZz+/Fju1vqq4P889fqRbFAzy16sg6uIr86y4OdNFqOjjE6Ty5aJ5O+gMqt35Hn18qeAI40ctUO35/qKlfqAA7VRt6pLPjlfUltVy+0AjMOjPn0eT50lLtddX1ZhPXidhLXVmtvh7QbdWMtgTVoP40dlRN6+MJm1Z5vObJTRnd6kFfgW1Yv+2itmlg0gXBtL4+nFmeRyezDgjm/RyC3oO1+sDNwqhZgBWeWnthjWd5t+IhJ55KbNtVWM+MBpwJT5B0XRTWZo32T/Q/CFJ3XtxmpiVS88wt9ai5o6GSSFtf737LsIs1nV50+4VDHvX1qoVVw9OBUtotaMUnCPI8wcRqA6Hv1XUeD6m56+rylY6kw0DXO3PRHXMNuUlE8gBJCLaVUVERjqeZU2Tng4bMAQN3npV3cf2LmE4vFI8WZzteNxqN47GeKf/ezfk2Ebn+q2FjHydRWAtuqvU67cVSsbtouKifoxttbE/pV9a2mXbpSApc9oXzRNzeoHpK7vtfYcwaFtRTwHkoJ2e4kIY8fKD1+kBwXYV5gOyqN52hto7PVB9JsHYF5akQow2NBnIN8bBlFeUhOjmc8J1YSnRdO9rkSeDw+5lKGYuIWQll8YA8uBdKbllCfBJB2akYD5I1dNOZ7rUZ4m0YkWdjPPDxFZktcFUTHnIDIKAA8cDGTZWADTfBWQFbIYgHbfK00fXeRVL6bgKqqRGeAHROqtr6BfTUBSgwQnjQAcH3CngVkBL7InnAITygq/OoLZfBB7Sct4zwgMONb3b4JqCC4aaGDZ4mZt2qJkdR4BAYifs6gCfB3sV2BvygEJyiolMK8ID/O5Mu3LC/KzqHAA9mTc9mJ4Vgcx8xvQ/gwUKIylqmt9+BvWUt5S4DPNh/Tr34vArz4MVtt8wDFG5fZTZ90D5JZ2kjL/Ng3lVmerUF6MRJLpXMg63dXBfKLwQOA2lDIvNg5lrpWv8TuAJJBlvmwaK8huYN7i4n7bBkHmylkz0rQVAtjhyGk3kwQ7o05QmwOEJePMbfB2zcnBfP2pSnhjkIefFsfhnP1iyJ7mLfsF1WXjxE0dzXAtdTyU2UecBYojrD+FXghsF8/QFPTTWV2+8F7hqlIIUt/81su+3BG1TpkEHmgfpA+v6jmQOHXrohTVOZByzRhDtQfi2wVbhY7SjztEAeuCXGlwJHtYX9qQeGksx2DOBwa0gvAXjQxFdFddibgF4eN4mn3AAPepiluK3nTehJtzioAR40WJ7p72RFOl/cJK7a9uK9JnsgdAis5KNEmacCZw9pY1ZwapCV8wX0vMT360onG07lkZ0qhAe/I6evstn48+2cz+G3sJwV5/VeB06238r/LoSHSBvN+G1DCy9Ys3S+zVzKtGKNdg3P7EMWBIgHTne5qE4CEfnpDaDRC5bvwmRHUunSLSbdHkl1wnjgm1huwo0CVakCtSTGeJAO4u/UB9ehlMrzhXb0YP4bkz160RbxtUOy6QD0TwJ5gI60HzWVDHc4I2u8sIALmj9K36OXDf5r7fJOzRlb4wW2d0B5aopL6o+zO78hWfC3D4PbeTj/Gg2LfNRm0f60449SVXm0uNFmeXAn+JNW9UZ/Fsdp+hxP9o2xsk8HGk4m6hdc31D9nRzc/5PvRa4fhY42iifgbju0KKImkKlnQi84sy5X/S1zuUb8fzGXJHH1jc85lga/iYrrkfWnpB9nBYdqHMDWB+db7ezjF/8oebynfHHWZFsHvh5dUbWp1zKHfoM5Ai3pphuafg5xlhOOolxF1W9jnkuVfaa5vkrXD6WHF1WptVKdj2n71Ti321ALYHs8XuLUmVtNlKex+v5IFYc9IRvqbCCT/lWRo1lU197rYsjjeRMHTSF3T/puXMb90lozy9Oo2jfraGfczy6cWWxzWe2bptGZ9+fzarGlNinbJ30FnkWeC1HCd9D4rOo0Nv4dtnguasZGxm64/6Y7ByNbPN4VaaAL0Y33psma/2SRx/OCynxx5GImu+UhMbHPn2WV56ogeu43Mohl1Hiam5bZfJZ1nptqlXS2X9fvxaqz4XR/SO2/1nPFc1MtbEXteHbYd7uNFy27p4dD/DyvhMyVJJQc8rxT8CrnL8qJJz+VPMVWyVNslTzFVslTbJU8xVbJU2yVPMVWyVNslTzFVslTbJU8xdaVx/ROpCKpVfVGUeX3KKp6fvU3yf8DTvaz9d9EJakAAAAASUVORK5CYII=", "https://69.eightgrade.com/")
+        createButton("Incognito Proxy", "images/incog.jpg", "https://unblocker.netlify.app/")
+        createButton("monkey3 three","images/3.jpg", "https://monkey3three.github.io/unblocked88.github.io/index2.html")
+        createButton("selenite", "images/selenite.jpg", "https://selenite.cc/")
+        createButton("BCHS", "images/black.png", "https://bchs.pages.dev/")
+        createButton("Crazy Games", "images/crazy.png", "https://www.crazygames.com/")
+        createButton("Poki", "images/poki.png", "https://poki.com/")
+        createButton("Turtle Games", "images/turtle.png", "https://turtlegames.org/")
+        createButton("Chess.com", "images/chess.com.png", "https://www.chess.com/")
+        createButton("Discord", "images/discord.png", "https://discord.com/app")
+  </script>
+</html>

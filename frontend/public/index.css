@@ -7,14 +7,21 @@ body {
   font-style: normal;
   color: white;
   margin: 0;
-  overflow: hidden;
   background-color: #00204a;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  overflow: hidden;
   min-height: 100vh;
 }
 
+img {
+  transition: 0.5s;
+}
+.logo:hover {
+  filter: hue-rotate(62deg);
+}
 svg {
   position: fixed;
   top: 0;
@@ -112,6 +119,7 @@ svg {
   left: 0;
   width: 100vw;
   height: 100vh;
+  z-index: 1999;
   background-color: #111;
 }
 
@@ -120,19 +128,84 @@ svg {
   bottom: 20px;
   right: 20px;
   background-color: transparent;
-  color: white;
+  color: rgba(255, 255, 255, 0.355);
   border: none;
   padding: 15px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  height: 30px;
   border-radius: 5px;
   cursor: pointer;
-  z-index: 1000;
+  z-index: 100000;
   transition: 0.3s;
 }
 
 .home-button:hover {
   filter: invert(28%) sepia(79%) saturate(20%) hue-rotate(86deg) brightness(118%) contrast(119%);
+}
+
+
+.game-buttons {
+  position: fixed; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  width: 70%;
+  height: 90%;
+
+  border-radius: calc(1vw);
+  background: transparent;
+  transition: width 0.5s, height 0.5s;
+  z-index: 10; 
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: flex-start;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.game-buttons::-webkit-scrollbar{
+  width: 9px;
+  background: transparent;
+  border-radius: 10px;
+}
+.game-button::-webkit-scrollbar-thumb{
+  background: #3db8dd;
+  z-index: 2;
+  border-radius: 10px;
+}
+.game-button:hover {
+  background-color: #004183;
+  transform: scale(1.05);
+}
+
+.game-button {
+  margin: 1px;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  clip-path: circle(50px);
+  position: relative;
+  cursor: pointer;
+}
+.game-button span {
+  color: #ffffff;
+  font-size: 14px;
+  white-space: pre-wrap;
+  filter: drop-shadow(0px 0px 3px rgb(0, 0, 0));
+  position: absolute;
+  bottom: 2; 
+}
+
+ #funnyimg {
+  width: 100%;
+  height: 100%;
+  object-fit:fill;
 }

@@ -20,11 +20,36 @@ const error = document.getElementById("uv-error");
  */
 const errorCode = document.getElementById("uv-error-code");
 const connection = new BareMux.BareMuxConnection("/baremux/worker.js")
+
+
+
 function clickHome() {
 	let frame = document.getElementById("uv-frame");
 	let home = document.getElementById("home-button");
 	frame.style.display = "none"
+	frame.src = ""
 	home.style.display = "none"
+}
+
+async function gameFrame(url) {
+	try {
+		await registerSW();
+	} catch (err) {
+		error.textContent = "Failed to register service worker.";
+		errorCode.textContent = err.toString();
+		throw err;
+	}
+
+	let frame = document.getElementById("uv-frame");
+	frame.style.display = "block";
+	let wispUrl = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/wisp/";
+	if (await connection.getTransport() !== "/epoxy/index.mjs") {
+		await connection.setTransport("/epoxy/index.mjs", [{ wisp: wispUrl }]);
+	}
+	frame.src = __uv$config.prefix + __uv$config.encodeUrl(url);
+
+	let home = document.getElementById("home-button");
+	home.style.display = "block"
 }
 
 form.addEventListener("submit", async (event) => {
