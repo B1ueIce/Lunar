@@ -46,7 +46,35 @@ async function gameFrame(url) {
 	if (await connection.getTransport() !== "/epoxy/index.mjs") {
 		await connection.setTransport("/epoxy/index.mjs", [{ wisp: wispUrl }]);
 	}
-	frame.src = __uv$config.prefix + __uv$config.encodeUrl(url);
+	if (url !== "") {
+		if (url !== "https://poki.com/" 
+			&& !url.includes("crazygames")
+			&& !url.includes("coolmathgames")
+			&& url !== "https://demo.os-js.org/"
+			&& url !== "https://play.geforcenow.com/mall/"
+			&& url !== "https://play.google.com/store/games?hl=en_US&gl=US"
+			&& url !== "https://vscode.dev/"
+			&& url !== "https://sflix.to/"
+			&& url !== "https://www.emugames.net/"
+			&& url !== "https://music.youtube.com/"
+			&& url !== "https://www.youtube.com/"
+			&& url !== "https://sites.google.com/site/unblockedgame76/"
+			&& url !== "https://sites.google.com/site/classroom6x/"
+			&& url !== "https://sandboxels.r74n.com/"
+			&& url !== "https://slither.io"
+			&& url !== "https://orteil.dashnet.org/cookieclicker/"
+			&& url !== "https://open.spotify.com/search"
+			&& url !== "https://www.chess.com/"
+			&& url !== "https://classic.minecraft.net/"
+			&& url !== "https://discord.com/app"
+			&& url !== "https://anura.pro/"
+		) {
+			frame.src = url
+		} else {
+			frame.src = __uv$config.prefix + __uv$config.encodeUrl(url);
+		}
+	}
+	
 
 	let home = document.getElementById("home-button");
 	home.style.display = "block"
