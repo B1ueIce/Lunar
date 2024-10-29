@@ -32,7 +32,7 @@ function clickHome() {
 }
 
 async function gameFrame(url) {
-
+	let frame = document.getElementById("uv-frame");
 	if (url !== "") {
 		if (url !== "https://poki.com/" 
 			&& !url.includes("crazygames")
@@ -57,6 +57,7 @@ async function gameFrame(url) {
 			&& url !== "https://anura.pro/"
 		) {
 			frame.src = url
+			frame.style.display = "block";
 		} else {
 			try {
 				await registerSW();
@@ -66,7 +67,7 @@ async function gameFrame(url) {
 				throw err;
 			}
 		
-			let frame = document.getElementById("uv-frame");
+			
 			frame.style.display = "block";
 			let wispUrl = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/wisp/";
 			if (await connection.getTransport() !== "/epoxy/index.mjs") {
